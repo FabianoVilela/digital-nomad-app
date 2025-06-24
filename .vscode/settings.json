@@ -1,7 +1,11 @@
 {
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "quickfix.biome": "explicit", // Added to format on save TailwindCSS
     "source.sortMembers": "explicit"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
   }
 }
