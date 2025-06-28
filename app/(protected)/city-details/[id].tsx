@@ -1,11 +1,9 @@
-import { Text, View } from '@tamagui/core';
-import { useRouter } from 'expo-router';
-import { useLocalSearchParams } from 'expo-router/build/hooks';
+import { View } from '@tamagui/core';
+import { CityCard } from '@/src/componets/CityCard';
+
+import { cities } from '@/src/data/cities';
 
 export default function CityDetails() {
-  const router = useRouter();
-  const { id } = useLocalSearchParams();
-
   return (
     <View
       flex={1}
@@ -13,9 +11,9 @@ export default function CityDetails() {
       alignItems="center"
       backgroundColor={'$bg'}
     >
-      <Text fontSize={30} onPress={router.back}>
-        City details {id}
-      </Text>
+      {cities.map(city => {
+        return <CityCard key={city.id} cityPreview={city} />;
+      })}
     </View>
   );
 }
