@@ -1,36 +1,24 @@
 import { createTamagui } from '@tamagui/core';
+import { colors, radius, sizes, spaces } from '@/theme';
 
 export const config = createTamagui({
   tokens: {
-    // width="$sm"
-    size: { sm: 8, md: 12, lg: 20 },
-    // margin="$sm"
-    space: { sm: 4, md: 8, lg: 12 },
-    // radius="$none"
-    radius: { none: 0, sm: 3 },
-    color: { white: '#fff', black: '#000' },
+    size: sizes,
+    space: spaces,
+    radius: radius,
+    color: colors,
   },
 
-  // themes are like CSS Variables that you can change anywhere in the tree
-  // you use <Theme name="light" /> to change the theme
   themes: {
     light: {
-      bg: '#f2f2f2',
-      color: '#fff',
+      bg: colors.background,
+      color: colors.color,
     },
     dark: {
-      bg: '#111',
-      color: '#000',
-    },
-    // sub-themes are a powerful feature of tamagui, explained later in the docs
-    // user theme like <Theme name="dark"><Theme name="blue">
-    // or just <Theme name="dark_blue">
-    dark_blue: {
-      bg: 'darkblue',
-      color: '#fff',
+      bg: colors.color,
+      color: colors.white,
     },
   },
-
   // media query definitions can be used as style props or with the useMedia hook
   // but also are added to "group styles", which work like Container Queries from CSS
   media: {

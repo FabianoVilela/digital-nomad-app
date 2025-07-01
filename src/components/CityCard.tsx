@@ -1,10 +1,10 @@
-import { Text } from '@tamagui/core';
 import { Link } from 'expo-router';
 import {
   ImageBackground,
   type ImageBackgroundProps,
   Pressable,
 } from 'react-native';
+import { Text } from '@/components/Text';
 import type { CityPreview } from '../types';
 
 type CityCardProps = {

@@ -1,10 +1,13 @@
-import { Text, View } from '@tamagui/core';
+import { Text } from '@/components/Text';
+import { View } from '@/components/View';
 
 export default function SignInScreen() {
   return (
     <View
-      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-      background={'purple'}
+      flex={1}
+      justifyContent="center"
+      alignItems="center"
+      backgroundColor={'$background'}
     >
       <Text>Sigin</Text>
     </View>
