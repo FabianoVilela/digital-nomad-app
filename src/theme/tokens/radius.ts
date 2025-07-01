@@ -1,4 +1,4 @@
 export const radius = {
-  none: 0,
-  sm: 3,
+  s16: 16,
+  true: 16, // default radius token
 } as const;
