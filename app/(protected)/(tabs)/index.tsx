@@ -1,20 +1,26 @@
 import { Link } from 'expo-router';
-import { Text } from '@/components/Text';
-import { View } from '@/components/View';
+import { FlatList, type ListRenderItemInfo } from 'react-native';
+import { CityCard } from '@/components/CityCard';
+import { Screen } from '@/components/Screen';
+import { cityPreviewList } from '@/data/cities';
 import { useAppTheme } from '@/theme';
+import type { CityPreview } from '@/types';
 
 export default function HomeScreen() {
   const { theme } = useAppTheme();
 
+  function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
+    return <CityCard cityPreview={item} />;
+  }
+
   return (
-    <View
-      flex={1}
-      justifyContent="center"
-      alignItems="center"
-      backgroundColor={theme.current.primary}
-    >
-      <Text>Home</Text>
+    <Screen>
       <Link href="/(protected)/city-details/1">City details</Link>
-    </View>
+      <FlatList
+        data={cityPreviewList}
+        renderItem={renderItem}
+        contentContainerStyle={{ width: 328, gap: theme.spaces.$s14.val }}
+      />
+    </Screen>
   );
 }
