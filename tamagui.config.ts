@@ -1,33 +1,75 @@
 import { createFont, createTamagui } from '@tamagui/core';
 import { colors, icons, radius, sizes, spaces } from '@/theme';
 
-const systemFont = createFont({
+const poppinsFont = createFont({
+  family: 'PoppinsRegular',
   size: {
-    1: 12,
-    2: 14,
-    3: 15,
+    12: 12,
+    14: 14,
+    16: 16,
+    18: 18,
+    22: 22,
+    28: 28,
   },
   lineHeight: {
-    // 1 will be 22
-    2: 22,
+    14: 14,
+    16: 16,
+    18: 18,
+    20: 20,
+    24: 24,
+    30: 30,
   },
   weight: {
-    1: '300',
-    // 2 will be 300
-    3: '600',
+    100: '100',
+    200: '200',
+    300: '300',
+    400: '400',
+    500: '500',
+    600: '600',
+    700: '700',
+    800: '800',
+    900: '900',
   },
   letterSpacing: {
-    1: 0,
-    2: -1,
-    // 3 will be -1
+    0: 0,
   },
-  // (native only) swaps out fonts by face/style
   face: {
-    300: { normal: 'InterLight', italic: 'InterItalic' },
-    600: { normal: 'InterBold' },
-  },
-  color: {
-    text: colors.pureWhite,
+    100: {
+      normal: 'PoppinsThin',
+      italic: 'PoppinsThinItalic',
+    },
+    200: {
+      normal: 'PoppinsExtraLight',
+      italic: 'PoppinsExtraLightItalic',
+    },
+    300: {
+      normal: 'PoppinsLight',
+      italic: 'PoppinsLightItalic',
+    },
+    400: {
+      normal: 'PoppinsRegular',
+      italic: 'PoppinsItalic',
+    },
+    500: {
+      normal: 'PoppinsMedium',
+      italic: 'PoppinsMediumItalic',
+    },
+    600: {
+      normal: 'PoppinsSemiBold',
+      italic: 'PoppinsSemiBoldItalic',
+    },
+    700: {
+      normal: 'PoppinsBold',
+      italic: 'PoppinsBoldItalic',
+    },
+    800: {
+      normal: 'PoppinsExtraBold',
+      italic: 'PoppinsExtraBoldItalic',
+    },
+    900: {
+      normal: 'PoppinsBlack',
+      italic: 'PoppinsBlackItalic',
+    },
   },
 });
 
@@ -47,9 +89,11 @@ export const config = createTamagui({
     color: colors,
     icon: icons,
   },
+
   fonts: {
-    system: systemFont,
+    PoppinsRegular: poppinsFont,
   },
+
   themes: {
     light: baseTheme,
     dark: baseTheme,
