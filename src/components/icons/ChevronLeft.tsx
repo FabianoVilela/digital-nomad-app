@@ -1,21 +1,13 @@
-import type React from 'react';
-import Svg, { Path } from 'react-native-svg';
 import type { IconComponentProps } from '../Icon';
+import { IconBase } from './IconBase';
 
-export const ChevronLeftIcon: React.FC<IconComponentProps> = ({
-  color,
-  size,
-}) => (
-  <Svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    aria-label="Chevron left icon"
-    role="img"
-  >
-    <Path
+export function ChevronLeftIcon({ color, size }: IconComponentProps) {
+  return (
+    <IconBase
+      size={size}
+      color={color}
+      aria-label="Chevron left icon"
       d="M11.2522 12.0001L14.926 15.6741C15.1753 15.9233 15.3 16.2319 15.3 16.6001C15.3 16.9683 15.1753 17.2769 14.926 17.5261C14.6768 17.7754 14.3682 17.9001 14 17.9001C13.6318 17.9001 13.3232 17.7754 13.074 17.5261L8.48799 12.9404C8.35982 12.812 8.26307 12.666 8.19774 12.5024C8.13257 12.3385 8.09999 12.1711 8.09999 12.0001C8.09999 11.8291 8.13257 11.6617 8.19774 11.4979C8.26307 11.3342 8.35982 11.1882 8.48799 11.0599L13.074 6.4741C13.3232 6.22477 13.6318 6.1001 14 6.1001C14.3682 6.1001 14.6768 6.22477 14.926 6.4741C15.1753 6.72327 15.3 7.03193 15.3 7.4001C15.3 7.76827 15.1753 8.07693 14.926 8.3261L11.2522 12.0001Z"
-      fill={color}
     />
-  </Svg>
-);
+  );
+}

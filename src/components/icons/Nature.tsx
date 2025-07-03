@@ -1,18 +1,13 @@
-import type React from 'react';
-import Svg, { Path } from 'react-native-svg';
 import type { IconComponentProps } from '../Icon';
+import { IconBase } from './IconBase';
 
-export const NatureIcon: React.FC<IconComponentProps> = ({ color, size }) => (
-  <Svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    aria-label="Nature icon"
-    role="img"
-  >
-    <Path
+export function NatureIcon({ color, size }: IconComponentProps) {
+  return (
+    <IconBase
+      size={size}
+      color={color}
+      aria-label="Nature icon"
       d="M7.43452 21V17.6197H1L4.2797 12.5493H2.65538L9.30336 3L12 6.88458L14.6966 3L21.3446 12.5493H19.7203L23 17.6197H16.5655V21H12.8396V17.6197H11.1604V21H7.43452ZM16.1449 15.3803H18.8797L15.579 10.3099H17.0684L14.6966 6.90106L13.3607 8.82L15.9396 12.5493H14.3153L16.1449 15.3803ZM5.1203 15.3803H13.4864L10.1857 10.3099H11.6751L9.30336 6.90106L6.93163 10.3099H8.421L5.1203 15.3803ZM5.1203 15.3803H8.421H6.93163H11.6751H10.1857H13.4864H5.1203ZM16.1449 15.3803H14.3153H15.9396H13.3607H17.0684H15.579H18.8797H16.1449Z"
-      fill={color}
     />
-  </Svg>
-);
+  );
+}

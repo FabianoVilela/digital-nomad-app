@@ -1,4 +1,3 @@
-// import { SvgProps } from 'react-native-svg';
 import { colors, icons as iconSizes } from '@/theme';
 import { icons } from './icons';
 
