@@ -1,18 +1,21 @@
-import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { FlashList, type ListRenderItemInfo } from '@shopify/flash-list';
+import { CityCard } from '@/components/CityCard';
+import { Screen } from '@/components/ui/Screen';
+import { cityPreviewList } from '@/data/cities';
 
 export default function HomeScreen() {
+  function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
+    return <CityCard cityPreview={item} />;
+  }
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Home</Text>
-      <Link href="/city-details/1">City Details</Link>
-      <Link href="/explore">Explore</Link>
-    </View>
+    <Screen>
+      <FlashList
+        style={{ flex: 1 }}
+        data={cityPreviewList}
+        keyExtractor={(item: CityPreview) => item.id}
+        renderItem={renderItem}
+      />
+    </Screen>
   );
 }
