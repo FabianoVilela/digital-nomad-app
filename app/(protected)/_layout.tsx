@@ -9,6 +9,7 @@ export default function ProtectedLayout() {
       }}
     >
       <Stack.Screen name="(tabs)/index" />
+      <Stack.Screen name="(tabs)/explore" />
       <Stack.Screen name="(tabs)/city-details/[id]" />
     </Stack>
   );

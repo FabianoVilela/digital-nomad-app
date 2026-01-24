@@ -12,6 +12,7 @@ export default function HomeScreen() {
     >
       <Text>Home</Text>
       <Link href="/city-details/1">City Details</Link>
+      <Link href="/explore">Explore</Link>
     </View>
   );
 }
