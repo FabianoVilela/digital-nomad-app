@@ -4,8 +4,10 @@
     "strict": true,
     "paths": {
       "@/app/*": ["./app/*"],
-      "@/data/*": ["./src/data/*"],
+      "@/assets/*": ["./assets/*"],
       "@/components/*": ["./src/components/*"],
+      "@/data/*": ["./src/data/*"],
+      "@/providers/*": ["./src/providers/*"],
       "@/theme/*": ["./src/theme/*"]
     }
   },
