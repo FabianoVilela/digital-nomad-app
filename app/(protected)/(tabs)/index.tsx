@@ -9,11 +9,13 @@ import { CityCard } from '@/components/CityCard';
 import { Box } from '@/components/ui/Box';
 import { Screen } from '@/components/ui/Screen';
 import { cityPreviewList } from '@/data/cities';
+import { useAppSafeArea } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
 
 export default function HomeScreen() {
   const flatListRef = useRef<FlashListRef<CityPreview>>(null);
   const { spacing } = useAppTheme();
+  const { top } = useAppSafeArea();
 
   useScrollToTop(flatListRef);
 
@@ -30,6 +32,7 @@ export default function HomeScreen() {
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <Box height={spacing.padding} />}
+        contentContainerStyle={{ paddingTop: top }}
       />
     </Screen>
   );

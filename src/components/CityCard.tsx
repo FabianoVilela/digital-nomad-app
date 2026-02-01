@@ -3,6 +3,7 @@ import { Link } from 'expo-router';
 import { Pressable, useWindowDimensions } from 'react-native';
 import { useAppTheme } from '@/theme/useAppTheme';
 import { Box } from './ui/Box';
+import { Icon } from './ui/Icon';
 import { Text } from './ui/Text';
 
 type CityCardProps = {
@@ -38,13 +39,31 @@ export function CityCard({
       >
         <ImageBackground
           source={imageSource}
-          style={[{ width: '100%', height: 280 }, style]}
-          imageStyle={{ borderRadius: borderRadii.default }}
-        />
-        <Box flex={1}>
-          <Text variant="title22">{cityPreview.name}</Text>
-          <Text variant="text16">{cityPreview.country}</Text>
-        </Box>
+          style={[
+            {
+              width: '100%',
+              height: 280,
+            },
+            style,
+          ]}
+          imageStyle={{
+            borderRadius: borderRadii.default,
+          }}
+        >
+          <Box flex={1} padding="s24" justifyContent="space-between">
+            {/* TODO: Implement favorite functionality */}
+            <Icon
+              name="favoriteFill"
+              size="s24"
+              color="primary"
+              alignSelf="flex-end"
+            />
+            <Box>
+              <Text variant="title22">{cityPreview.name}</Text>
+              <Text variant="text16">{cityPreview.country}</Text>
+            </Box>
+          </Box>
+        </ImageBackground>
       </Pressable>
     </Link>
   );

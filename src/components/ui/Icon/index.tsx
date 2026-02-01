@@ -1,10 +1,22 @@
 import type { SvgProps } from 'react-native-svg';
 import type { Theme, ThemeColors } from '@/theme/theme';
 import { useAppTheme } from '@/theme/useAppTheme';
+import type { BoxProps } from '../Box';
 import { type IconName, icons } from './icons';
 
 export interface IconProps
-  extends Omit<SvgProps, 'color' | 'width' | 'height'> {
+  extends Omit<SvgProps, 'color' | 'width' | 'height'>,
+    Omit<
+      BoxProps,
+      | 'children'
+      | 'width'
+      | 'height'
+      | 'style'
+      | 'color'
+      | 'hitSlop'
+      | 'opacity'
+      | 'transform'
+    > {
   name: IconName;
   size?: keyof Theme['spacing'] | number;
   color?: ThemeColors;
