@@ -3,14 +3,9 @@ import { Stack } from 'expo-router';
 export default function ProtectedLayout() {
   return (
     <Stack
-      screenOptions={{
-        headerShown: false,
-        fullScreenGestureEnabled: true,
-      }}
+      screenOptions={{ headerShown: false, fullScreenGestureEnabled: true }}
     >
-      <Stack.Screen name="(tabs)/index" />
-      <Stack.Screen name="(tabs)/explore" />
-      <Stack.Screen name="(tabs)/city-details/[id]" />
+      <Stack.Screen name="(tabs)" />
     </Stack>
   );
 }

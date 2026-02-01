@@ -23,7 +23,7 @@ export function Icon({
   const iconSize =
     theme.spacing[size as keyof Theme['spacing']] || theme.spacing.s24;
 
-  const iconColor = theme.colors[color];
+  const iconColor = theme.colors[color] || (color as string);
 
   if (!IconComponent) {
     console.warn(`Icon "${name}" not found`);
