@@ -7,6 +7,7 @@
       "@/assets/*": ["./assets/*"],
       "@/components/*": ["./src/components/*"],
       "@/data/*": ["./src/data/*"],
+      "@/hooks": ["./src/hooks"],
       "@/providers/*": ["./src/providers/*"],
       "@/theme/*": ["./src/theme/*"]
     }
