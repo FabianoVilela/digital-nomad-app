@@ -1,9 +1,10 @@
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Box } from '@/components/ui/Box';
+import { Text } from '@/components/ui/Text';
 
 export default function Index() {
   return (
-    <View
+    <Box
       style={{
         flex: 1,
         justifyContent: 'center',
@@ -12,6 +13,6 @@ export default function Index() {
     >
       <Text>Home public</Text>
       <Link href="/(public)/sign-in">Sign In</Link>
-    </View>
+    </Box>
   );
 }

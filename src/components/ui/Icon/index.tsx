@@ -1,0 +1,43 @@
+import type { SvgProps } from 'react-native-svg';
+import type { Theme, ThemeColors } from '@/theme/theme';
+import { useAppTheme } from '@/theme/useAppTheme';
+import { type IconName, icons } from './icons';
+
+export interface IconProps
+  extends Omit<SvgProps, 'color' | 'width' | 'height'> {
+  name: IconName;
+  size?: keyof Theme['spacing'] | number;
+  color?: ThemeColors;
+}
+
+export function Icon({
+  name,
+  size = 's24',
+  color = 'gray2',
+  style,
+  ...props
+}: IconProps) {
+  const theme = useAppTheme();
+  const IconComponent = icons[name];
+
+  const iconSize =
+    theme.spacing[size as keyof Theme['spacing']] || theme.spacing.s24;
+
+  const iconColor = theme.colors[color];
+
+  if (!IconComponent) {
+    console.warn(`Icon "${name}" not found`);
+    return null;
+  }
+
+  return (
+    <IconComponent
+      width={iconSize}
+      height={iconSize}
+      fill={iconColor}
+      color={iconColor}
+      style={style}
+      {...props}
+    />
+  );
+}
