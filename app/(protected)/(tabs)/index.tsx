@@ -1,9 +1,22 @@
-import { FlashList, type ListRenderItemInfo } from '@shopify/flash-list';
+import { useScrollToTop } from '@react-navigation/native';
+import {
+  FlashList,
+  type FlashListRef,
+  type ListRenderItemInfo,
+} from '@shopify/flash-list';
+import { useRef } from 'react';
 import { CityCard } from '@/components/CityCard';
+import { Box } from '@/components/ui/Box';
 import { Screen } from '@/components/ui/Screen';
 import { cityPreviewList } from '@/data/cities';
+import { useAppTheme } from '@/theme/useAppTheme';
 
 export default function HomeScreen() {
+  const flatListRef = useRef<FlashListRef<CityPreview>>(null);
+  const { spacing } = useAppTheme();
+
+  useScrollToTop(flatListRef);
+
   function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
     return <CityCard cityPreview={item} />;
   }
@@ -11,10 +24,12 @@ export default function HomeScreen() {
   return (
     <Screen>
       <FlashList
-        style={{ flex: 1 }}
+        ref={flatListRef}
         data={cityPreviewList}
-        keyExtractor={(item: CityPreview) => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+        ItemSeparatorComponent={() => <Box height={spacing.padding} />}
       />
     </Screen>
   );
