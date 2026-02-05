@@ -100,4 +100,5 @@ const theme = createTheme({
 
 export type Theme = typeof theme;
 export type ThemeColors = keyof Theme['colors'];
+export type ThemeTextVariants = keyof Theme['textVariants'];
 export default theme;

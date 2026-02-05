@@ -2,7 +2,9 @@ import type { SvgProps } from 'react-native-svg';
 import type { Theme, ThemeColors } from '@/theme/theme';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { BoxProps } from '../Box';
+
 import { type IconName, icons } from './icons';
+export type { IconName };
 
 export interface IconProps
   extends Omit<SvgProps, 'color' | 'width' | 'height'>,

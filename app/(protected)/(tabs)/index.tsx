@@ -6,6 +6,7 @@ import {
 } from '@shopify/flash-list';
 import { useRef } from 'react';
 import { CityCard } from '@/components/CityCard';
+import { CityFilter } from '@/components/CityFilter';
 import { Box } from '@/components/ui/Box';
 import { Screen } from '@/components/ui/Screen';
 import { cityPreviewList } from '@/data/cities';
@@ -31,8 +32,13 @@ export default function HomeScreen() {
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={<CityFilter />}
         ItemSeparatorComponent={() => <Box height={spacing.padding} />}
-        contentContainerStyle={{ paddingTop: top }}
+        contentContainerStyle={{
+          paddingTop: top,
+          paddingBottom: spacing.padding,
+          gap: spacing.s10,
+        }}
       />
     </Screen>
   );
