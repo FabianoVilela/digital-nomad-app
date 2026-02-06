@@ -1,7 +1,7 @@
+import { PressableBox, type PressableBoxProps } from '@/components/ui/Box';
+import { Icon, type IconName } from '@/components/ui/Icon';
 import type { Theme, ThemeColors } from '@/theme/theme';
 import { useAppTheme } from '@/theme/useAppTheme';
-import { PressableBox, type PressableBoxProps } from './Box';
-import { Icon, type IconName } from './Icon';
 
 interface IconButtonProps extends PressableBoxProps {
   icon: IconName;

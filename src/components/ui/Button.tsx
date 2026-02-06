@@ -1,10 +1,8 @@
 import { ActivityIndicator } from 'react-native';
-
+import { Box, PressableBox, type PressableBoxProps } from '@/components/ui/Box';
+import { Icon, type IconName } from '@/components/ui/Icon';
+import { Text } from '@/components/ui/Text';
 import type { ThemeColors, ThemeTextVariants } from '@/theme/theme';
-
-import { Box, PressableBox, type PressableBoxProps } from './Box';
-import { Icon, type IconName } from './Icon';
-import { Text } from './Text';
 
 type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'icon';
 type ButtonTextVariant = Exclude<ThemeTextVariants, 'defaults'>;
