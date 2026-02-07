@@ -9,9 +9,11 @@ import { CityCard } from '@/components/CityCard';
 import { CityFilter } from '@/components/CityFilter';
 import { Box } from '@/components/ui/Box';
 import { Screen } from '@/components/ui/Screen';
+import { categories } from '@/data/categories';
 import { cityPreviewList } from '@/data/cities';
 import { useAppSafeArea } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
+import type { CityPreview } from '@/types';
 
 export default function HomeScreen() {
   const flatListRef = useRef<FlashListRef<CityPreview>>(null);
@@ -25,19 +27,20 @@ export default function HomeScreen() {
   }
 
   return (
-    <Screen>
+    <Screen style={{ paddingHorizontal: 0 }}>
       <FlashList
         ref={flatListRef}
         data={cityPreviewList}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={<CityFilter />}
+        ListHeaderComponent={<CityFilter categories={categories} />}
         ItemSeparatorComponent={() => <Box height={spacing.padding} />}
         contentContainerStyle={{
           paddingTop: top,
           paddingBottom: spacing.padding,
-          gap: spacing.s10,
+          paddingHorizontal: spacing.padding,
+          // gap: spacing.s8,
         }}
       />
     </Screen>

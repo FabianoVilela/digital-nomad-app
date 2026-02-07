@@ -9,7 +9,8 @@
       "@/data/*": ["./src/data/*"],
       "@/hooks": ["./src/hooks"],
       "@/providers/*": ["./src/providers/*"],
-      "@/theme/*": ["./src/theme/*"]
+      "@/theme/*": ["./src/theme/*"],
+      "@/types": ["./src/types"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

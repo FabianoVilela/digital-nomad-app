@@ -1,5 +1,6 @@
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import ThemeProvider from '@/providers/theme-provider';
 import theme from '@/theme/theme';
 
@@ -35,6 +36,7 @@ export default function RootLayout() {
         <Stack.Screen name="(public)" />
         <Stack.Screen name="(protected)" />
       </Stack>
+      <StatusBar style="light" />
     </ThemeProvider>
   );
 }

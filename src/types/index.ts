@@ -1,11 +1,11 @@
-type TouristAttraction = {
+export type TouristAttraction = {
   id: string;
   name: string;
   description: string;
   cityId: string;
 };
 
-type CategoryCode =
+export type CategoryCode =
   | 'ADVENTURE'
   | 'BEACH'
   | 'CULTURE'
@@ -17,14 +17,14 @@ type CategoryCode =
   | 'URBAN'
   | 'FAVORITE';
 
-type Category = {
+export type Category = {
   id: string;
   name: string;
   description: string | null;
   code: CategoryCode;
 };
 
-type City = {
+export type City = {
   id: string;
   name: string;
   country: string;
@@ -39,5 +39,4 @@ type City = {
   relatedCitiesIds: string[];
 };
 
-// biome-ignore lint/correctness/noUnusedVariables: false positive
-type CityPreview = Pick<City, 'id' | 'name' | 'country' | 'coverImage'>;
+export type CityPreview = Pick<City, 'id' | 'name' | 'country' | 'coverImage'>;
