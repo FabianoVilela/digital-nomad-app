@@ -5,13 +5,19 @@ import type { Category, CategoryCode } from '@/types';
 
 export type CategoryPillProps = {
   category: Category;
+  onPress: (selectedCategory: Category) => void;
 } & Pick<PillProps, 'active'>;
 
-export function CategoryPill({ category, ...props }: CategoryPillProps) {
+export function CategoryPill({
+  category,
+  onPress,
+  ...props
+}: CategoryPillProps) {
   return (
     <Pill
       icon={categoryIconMap[category.code]}
       label={category.name}
+      onPress={() => onPress(category)}
       {...props}
     />
   );

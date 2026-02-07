@@ -4,7 +4,7 @@ import {
   type FlashListRef,
   type ListRenderItemInfo,
 } from '@shopify/flash-list';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { CityCard } from '@/components/CityCard';
 import { CityFilter } from '@/components/CityFilter';
 import { Box } from '@/components/ui/Box';
@@ -13,14 +13,22 @@ import { categories } from '@/data/categories';
 import { cityPreviewList } from '@/data/cities';
 import { useAppSafeArea } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
-import type { CityPreview } from '@/types';
+import type { Category, CityPreview } from '@/types';
 
 export default function HomeScreen() {
   const flatListRef = useRef<FlashListRef<CityPreview>>(null);
   const { spacing } = useAppTheme();
   const { top } = useAppSafeArea();
 
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>(
+    categories[0].id,
+  );
+
   useScrollToTop(flatListRef);
+
+  function handleCategoryPress(category: Category) {
+    setSelectedCategoryId(category.id);
+  }
 
   function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
     return <CityCard cityPreview={item} />;
@@ -34,13 +42,18 @@ export default function HomeScreen() {
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
-        ListHeaderComponent={<CityFilter categories={categories} />}
+        ListHeaderComponent={
+          <CityFilter
+            categories={categories}
+            selectedCategoryId={selectedCategoryId}
+            onSelectCategory={handleCategoryPress}
+          />
+        }
         ItemSeparatorComponent={() => <Box height={spacing.padding} />}
         contentContainerStyle={{
           paddingTop: top,
           paddingBottom: spacing.padding,
           paddingHorizontal: spacing.padding,
-          // gap: spacing.s8,
         }}
       />
     </Screen>

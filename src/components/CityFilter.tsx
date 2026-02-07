@@ -8,12 +8,18 @@ import type { Category } from '@/types';
 
 type CityFilterProps = {
   categories: Category[];
+  selectedCategoryId: string;
+  onSelectCategory: (category: Category) => void;
 };
 
-export function CityFilter({ categories }: CityFilterProps) {
-  const [search, setSearch] = useState('');
-  const [activeCategory] = useState<Category | null>(null);
+export function CityFilter({
+  categories,
+  selectedCategoryId,
+  onSelectCategory,
+}: CityFilterProps) {
   const { spacing } = useAppTheme();
+
+  const [search, setSearch] = useState('');
 
   return (
     <Box>
@@ -38,7 +44,8 @@ export function CityFilter({ categories }: CityFilterProps) {
           <CategoryPill
             key={category.id}
             category={category}
-            active={activeCategory?.id === category.id}
+            onPress={onSelectCategory}
+            active={selectedCategoryId === category.id}
           />
         ))}
       </ScrollView>
