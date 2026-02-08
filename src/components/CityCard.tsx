@@ -3,6 +3,7 @@ import { Link } from 'expo-router';
 import { Pressable, useWindowDimensions } from 'react-native';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { CityPreview } from '@/types';
+import { BlackOpacity } from './ui/BlackOpacity';
 import { Box } from './ui/Box';
 import { Icon } from './ui/Icon';
 import { Text } from './ui/Text';
@@ -51,6 +52,7 @@ export function CityCard({
             borderRadius: borderRadii.default,
           }}
         >
+          <BlackOpacity />
           <Box flex={1} padding="s24" justifyContent="space-between">
             {/* TODO: Implement favorite functionality */}
             <Icon
