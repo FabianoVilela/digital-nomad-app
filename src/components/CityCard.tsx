@@ -2,6 +2,7 @@ import { ImageBackground } from 'expo-image';
 import { Link } from 'expo-router';
 import { Pressable, useWindowDimensions } from 'react-native';
 import { useAppTheme } from '@/theme/useAppTheme';
+import type { CityPreview } from '@/types';
 import { Box } from './ui/Box';
 import { Icon } from './ui/Icon';
 import { Text } from './ui/Text';

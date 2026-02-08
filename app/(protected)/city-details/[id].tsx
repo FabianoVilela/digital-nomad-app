@@ -1,21 +1,42 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
+import { CityDetailsHeader } from '@/components/CityDetailsHeader';
+import { CityDetailsInfo } from '@/components/CityDetailsInfo';
+import { CityDetailsMap } from '@/components/CityDetailsMap';
+import { CityDetailsRelatedCities } from '@/components/CityDetailsRelatedCities';
+import { Screen } from '@/components/ui/Screen';
+import { cities } from '@/data/cities';
 
 export default function CityDetailsScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
 
+  // TODO: Replace with data fetching - W.I.P
+  const city = cities.find((city) => city.id === id);
+
+  if (!city) {
+    return (
+      <Screen>
+        <Text>Cidade não encontrada</Text>
+      </Screen>
+    );
+  }
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>City Details</Text>
-      <Text>City ID: {id}</Text>
-      <Text onPress={() => router.back()}>Back</Text>
-    </View>
+    <Screen>
+      <CityDetailsHeader
+        coverImage={city.coverImage}
+        categories={city.categories}
+      />
+      <CityDetailsInfo
+        name={city.name}
+        country={city.country}
+        description={city.description}
+        touristAttractions={city.touristAttractions}
+      />
+      <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
+      <CityDetailsMap location={city.location} />
+      <Text onPress={() => router.back()}>Voltar</Text>
+    </Screen>
   );
 }
