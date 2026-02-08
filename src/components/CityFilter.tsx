@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { CategoryPill } from '@/components/CategoryPill';
 import { Box } from '@/components/ui/Box';
@@ -8,25 +7,27 @@ import type { Category } from '@/types';
 
 type CityFilterProps = {
   categories: Category[];
-  selectedCategoryId: string;
-  onSelectCategory: (category: Category) => void;
+  selectedCategoryId: string | null;
+  onSelectCategory: (category: Category | null) => void;
+  search: string;
+  onSearchChange: (search: string) => void;
 };
 
 export function CityFilter({
   categories,
-  selectedCategoryId,
+  selectedCategoryId = null,
   onSelectCategory,
+  search,
+  onSearchChange,
 }: CityFilterProps) {
   const { spacing } = useAppTheme();
-
-  const [search, setSearch] = useState('');
 
   return (
     <Box>
       <SearchInput
         placeholder="Qual o seu próximo destino?"
         value={search}
-        onChangeText={setSearch}
+        onChangeText={onSearchChange}
       />
       <ScrollView
         horizontal
@@ -44,7 +45,11 @@ export function CityFilter({
           <CategoryPill
             key={category.id}
             category={category}
-            onPress={onSelectCategory}
+            onPress={() =>
+              onSelectCategory(
+                category.id === selectedCategoryId ? null : category,
+              )
+            }
             active={selectedCategoryId === category.id}
           />
         ))}

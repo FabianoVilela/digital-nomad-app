@@ -4,7 +4,7 @@ import {
   type FlashListRef,
   type ListRenderItemInfo,
 } from '@shopify/flash-list';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { CityCard } from '@/components/CityCard';
 import { CityFilter } from '@/components/CityFilter';
 import { Box } from '@/components/ui/Box';
@@ -20,30 +20,54 @@ export default function HomeScreen() {
   const { spacing } = useAppTheme();
   const { top } = useAppSafeArea();
 
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string>(
-    categories[0].id,
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null,
   );
+
+  const [search, setSearch] = useState('');
 
   useScrollToTop(flatListRef);
 
-  function handleCategoryPress(category: Category) {
-    setSelectedCategoryId(category.id);
+  function handleCategoryPress(category: Category | null) {
+    if (category) {
+      setSelectedCategoryId(category.id);
+      return;
+    }
+
+    setSelectedCategoryId(null);
   }
 
   function renderItem({ item }: ListRenderItemInfo<CityPreview>) {
     return <CityCard cityPreview={item} />;
   }
 
+  // TODO: Remove - W.I.P
+  const filteredCities = useMemo(() => {
+    const filteredCities = cityPreviewList.filter((city) =>
+      city.name.toLowerCase().includes(search.toLowerCase()),
+    );
+
+    if (selectedCategoryId) {
+      return filteredCities.filter((city) =>
+        city.categories.some((category) => category.id === selectedCategoryId),
+      );
+    }
+
+    return filteredCities;
+  }, [search, selectedCategoryId]);
+
   return (
     <Screen style={{ paddingHorizontal: 0 }}>
       <FlashList
         ref={flatListRef}
-        data={cityPreviewList}
+        data={filteredCities}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <CityFilter
+            search={search}
+            onSearchChange={setSearch}
             categories={categories}
             selectedCategoryId={selectedCategoryId}
             onSelectCategory={handleCategoryPress}
