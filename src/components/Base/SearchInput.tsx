@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextInput, type TextInputProps } from 'react-native';
-import { Box, type BoxProps } from '@/components/ui/Box';
-import { IconButton } from '@/components/ui/IconButton';
+import { Box, type BoxProps } from '@/components/Base/Box';
+import { IconButton } from '@/components/Base/IconButton';
 import { useAppTheme } from '@/theme/useAppTheme';
 
 type SearchInputProps = TextInputProps & {

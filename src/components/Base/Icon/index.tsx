@@ -1,5 +1,5 @@
 import type { SvgProps } from 'react-native-svg';
-import type { BoxProps } from '@/components/ui/Box';
+import type { BoxProps } from '@/components/Base/Box';
 import type { Theme, ThemeColors } from '@/theme/theme';
 import { useAppTheme } from '@/theme/useAppTheme';
 

@@ -3,10 +3,10 @@ import { Link } from 'expo-router';
 import { Pressable, useWindowDimensions } from 'react-native';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { CityPreview } from '@/types';
-import { BlackOpacity } from './ui/BlackOpacity';
-import { Box } from './ui/Box';
-import { Icon } from './ui/Icon';
-import { Text } from './ui/Text';
+import { BlackOpacity } from './Base/BlackOpacity';
+import { Box } from './Base/Box';
+import { Icon } from './Base/Icon';
+import { Text } from './Base/Text';
 
 type CityCardProps = {
   cityPreview: CityPreview;

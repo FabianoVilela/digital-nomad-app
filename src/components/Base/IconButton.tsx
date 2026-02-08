@@ -1,5 +1,5 @@
-import { PressableBox, type PressableBoxProps } from '@/components/ui/Box';
-import { Icon, type IconName } from '@/components/ui/Icon';
+import { PressableBox, type PressableBoxProps } from '@/components/Base/Box';
+import { Icon, type IconName } from '@/components/Base/Icon';
 import type { Theme, ThemeColors } from '@/theme/theme';
 import { useAppTheme } from '@/theme/useAppTheme';
 

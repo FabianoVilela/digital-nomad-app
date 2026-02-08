@@ -1,6 +1,6 @@
-import type { IconName } from '@/components/ui/Icon';
-import type { PillProps } from '@/components/ui/Pill';
-import { Pill } from '@/components/ui/Pill';
+import type { IconName } from '@/components/Base/Icon';
+import type { PillProps } from '@/components/Base/Pill';
+import { Pill } from '@/components/Base/Pill';
 import type { Category, CategoryCode } from '@/types';
 
 export type CategoryPillProps = {

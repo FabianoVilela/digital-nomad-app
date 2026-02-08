@@ -1,10 +1,10 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Text } from 'react-native';
+import { Screen } from '@/components/Base/Screen';
 import { CityDetailsHeader } from '@/components/CityDetailsHeader';
 import { CityDetailsInfo } from '@/components/CityDetailsInfo';
 import { CityDetailsMap } from '@/components/CityDetailsMap';
 import { CityDetailsRelatedCities } from '@/components/CityDetailsRelatedCities';
-import { Screen } from '@/components/ui/Screen';
 import { cities } from '@/data/cities';
 
 export default function CityDetailsScreen() {

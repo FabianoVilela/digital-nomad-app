@@ -5,10 +5,10 @@ import {
   type ListRenderItemInfo,
 } from '@shopify/flash-list';
 import { useMemo, useRef, useState } from 'react';
+import { Box } from '@/components/Base/Box';
+import { Screen } from '@/components/Base/Screen';
 import { CityCard } from '@/components/CityCard';
 import { CityFilter } from '@/components/CityFilter';
-import { Box } from '@/components/ui/Box';
-import { Screen } from '@/components/ui/Screen';
 import { categories } from '@/data/categories';
 import { cityPreviewList } from '@/data/cities';
 import { useAppSafeArea, useDebounce } from '@/hooks';

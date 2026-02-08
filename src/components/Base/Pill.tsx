@@ -1,6 +1,6 @@
-import { PressableBox } from '@/components/ui/Box';
-import { Icon, type IconName } from '@/components/ui/Icon';
-import { Text } from '@/components/ui/Text';
+import { PressableBox } from '@/components/Base/Box';
+import { Icon, type IconName } from '@/components/Base/Icon';
+import { Text } from '@/components/Base/Text';
 
 export type PillProps = {
   label: string;

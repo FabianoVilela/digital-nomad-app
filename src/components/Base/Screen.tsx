@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Box, type BoxProps } from '@/components/ui/Box';
+import { Box, type BoxProps } from '@/components/Base/Box';
 
 export function Screen({ children, ...props }: PropsWithChildren<BoxProps>) {
   return (

@@ -1,10 +1,10 @@
 import { ImageBackground } from 'expo-image';
 import { router } from 'expo-router';
 import { ScrollView } from 'react-native';
-import { BlackOpacity } from '@/components/ui/BlackOpacity';
-import { Box } from '@/components/ui/Box';
-import { Icon } from '@/components/ui/Icon';
-import { IconButton } from '@/components/ui/IconButton';
+import { BlackOpacity } from '@/components/Base/BlackOpacity';
+import { Box } from '@/components/Base/Box';
+import { Icon } from '@/components/Base/Icon';
+import { IconButton } from '@/components/Base/IconButton';
 import { useAppSafeArea } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { City } from '@/types';

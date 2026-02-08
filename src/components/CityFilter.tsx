@@ -1,7 +1,7 @@
 import { ScrollView } from 'react-native';
+import { Box } from '@/components/Base/Box';
+import { SearchInput } from '@/components/Base/SearchInput';
 import { CategoryPill } from '@/components/CategoryPill';
-import { Box } from '@/components/ui/Box';
-import { SearchInput } from '@/components/ui/SearchInput';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { Category } from '@/types';
 

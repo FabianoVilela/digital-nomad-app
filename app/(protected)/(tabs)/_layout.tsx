@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/Base/Icon';
 import { useAppTheme } from '@/theme/useAppTheme';
 
 export default function ProtectedTabsLayout() {
