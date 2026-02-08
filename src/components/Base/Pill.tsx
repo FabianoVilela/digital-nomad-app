@@ -17,7 +17,7 @@ export function Pill({ label, icon, active = false, onPress }: PillProps) {
       onPress={onPress}
     >
       <Icon name={icon} color={active ? 'primary' : 'gray2'} size="s16" />
-      <Text color="pureWhite" variant="text12" lineHeight={0}>
+      <Text color="pureWhite" variant="text12">
         {label}
       </Text>
     </PressableBox>

@@ -114,7 +114,6 @@ export function Button({
           <Text
             color={buttonStyles.textColor}
             variant={buttonStyles.textVariant}
-            lineHeight={0}
           >
             {title}
           </Text>
