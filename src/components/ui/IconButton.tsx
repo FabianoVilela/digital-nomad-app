@@ -13,7 +13,7 @@ export function IconButton({
   icon,
   onPress,
   size = 's48',
-  iconColor = 'gray2',
+  iconColor = 'pureWhite',
   ...props
 }: IconButtonProps) {
   const { spacing } = useAppTheme();

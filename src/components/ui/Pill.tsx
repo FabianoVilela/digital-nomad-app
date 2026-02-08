@@ -13,7 +13,7 @@ export function Pill({ label, icon, active = false, onPress }: PillProps) {
   return (
     <PressableBox
       {...boxStyle}
-      backgroundColor={active ? 'gray1' : 'transparent'}
+      backgroundColor={active ? 'gray1' : 'background'}
       onPress={onPress}
     >
       <Icon name={icon} color={active ? 'primary' : 'gray2'} size="s16" />

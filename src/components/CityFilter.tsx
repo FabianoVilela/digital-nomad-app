@@ -32,13 +32,13 @@ export function CityFilter({
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        style={{
-          marginHorizontal: -spacing.s16,
-          paddingVertical: spacing.s12,
-        }}
         contentContainerStyle={{
           gap: spacing.s8,
           paddingHorizontal: spacing.s16,
+        }}
+        style={{
+          marginHorizontal: -spacing.s16,
+          paddingVertical: spacing.s12,
         }}
       >
         {categories.map((category) => (

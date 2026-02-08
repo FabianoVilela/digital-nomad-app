@@ -5,7 +5,7 @@ import type { Category, CategoryCode } from '@/types';
 
 export type CategoryPillProps = {
   category: Category;
-  onPress: (selectedCategory: Category) => void;
+  onPress?: (selectedCategory: Category) => void;
 } & Pick<PillProps, 'active'>;
 
 export function CategoryPill({
@@ -17,7 +17,7 @@ export function CategoryPill({
     <Pill
       icon={categoryIconMap[category.code]}
       label={category.name}
-      onPress={() => onPress(category)}
+      onPress={() => onPress?.(category)}
       {...props}
     />
   );

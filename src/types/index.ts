@@ -28,7 +28,7 @@ export type City = {
   id: string;
   name: string;
   country: string;
-  coverImage: number;
+  coverImage: string;
   description: string;
   touristAttractions: TouristAttraction[];
   location: {
