@@ -11,7 +11,7 @@ import { Box } from '@/components/ui/Box';
 import { Screen } from '@/components/ui/Screen';
 import { categories } from '@/data/categories';
 import { cityPreviewList } from '@/data/cities';
-import { useAppSafeArea } from '@/hooks';
+import { useAppSafeArea, useDebounce } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
 import type { Category, CityPreview } from '@/types';
 
@@ -19,12 +19,12 @@ export default function HomeScreen() {
   const flatListRef = useRef<FlashListRef<CityPreview>>(null);
   const { spacing } = useAppTheme();
   const { top } = useAppSafeArea();
+  const [search, setSearch] = useState('');
+  const debouncedSearch = useDebounce({ value: search });
 
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
     null,
   );
-
-  const [search, setSearch] = useState('');
 
   useScrollToTop(flatListRef);
 
@@ -44,7 +44,7 @@ export default function HomeScreen() {
   // TODO: Remove - W.I.P
   const filteredCities = useMemo(() => {
     const filteredCities = cityPreviewList.filter((city) =>
-      city.name.toLowerCase().includes(search.toLowerCase()),
+      city.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
     );
 
     if (selectedCategoryId) {
@@ -54,7 +54,7 @@ export default function HomeScreen() {
     }
 
     return filteredCities;
-  }, [search, selectedCategoryId]);
+  }, [debouncedSearch, selectedCategoryId]);
 
   return (
     <Screen style={{ paddingHorizontal: 0 }}>
