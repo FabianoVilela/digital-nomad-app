@@ -1,5 +1,6 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { Text } from 'react-native';
+import { Divider } from '@/components/Base/Divider';
 import { Screen } from '@/components/Base/Screen';
 import { CityDetailsHeader } from '@/components/CityDetailsHeader';
 import { CityDetailsInfo } from '@/components/CityDetailsInfo';
@@ -8,7 +9,6 @@ import { CityDetailsRelatedCities } from '@/components/CityDetailsRelatedCities'
 import { cities } from '@/data/cities';
 
 export default function CityDetailsScreen() {
-  const router = useRouter();
   const { id } = useLocalSearchParams();
 
   // TODO: Replace with data fetching - W.I.P
@@ -32,11 +32,11 @@ export default function CityDetailsScreen() {
         name={city.name}
         country={city.country}
         description={city.description}
-        touristAttractions={city.touristAttractions}
       />
+      <Divider />
       <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
+      <Divider />
       <CityDetailsMap location={city.location} />
-      <Text onPress={() => router.back()}>Voltar</Text>
     </Screen>
   );
 }

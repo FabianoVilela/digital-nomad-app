@@ -25,7 +25,7 @@ export function CityDetailsHeader({
       style={{
         marginLeft: -spacing.s16,
         marginRight: -spacing.s16,
-        marginBottom: spacing.s32,
+        marginBottom: spacing.s40,
       }}
     >
       <ImageBackground
@@ -59,9 +59,10 @@ export function CityDetailsHeader({
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
+            bounces={false}
             contentContainerStyle={{
               gap: spacing.s8,
-              paddingRight: spacing.s16,
+              paddingRight: spacing.s24,
             }}
             style={{
               left: -spacing.s16,
