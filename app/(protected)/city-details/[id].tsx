@@ -1,11 +1,12 @@
 import { useLocalSearchParams } from 'expo-router';
-import { Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { Divider } from '@/components/Base/Divider';
 import { Screen } from '@/components/Base/Screen';
 import { CityDetailsHeader } from '@/components/CityDetailsHeader';
 import { CityDetailsInfo } from '@/components/CityDetailsInfo';
 import { CityDetailsMap } from '@/components/CityDetailsMap';
 import { CityDetailsRelatedCities } from '@/components/CityDetailsRelatedCities';
+import { CityDetailsTouristAttractions } from '@/components/CityDetailsTouristAttractions';
 import { cities } from '@/data/cities';
 
 export default function CityDetailsScreen() {
@@ -28,15 +29,21 @@ export default function CityDetailsScreen() {
         coverImage={city.coverImage}
         categories={city.categories}
       />
-      <CityDetailsInfo
-        name={city.name}
-        country={city.country}
-        description={city.description}
-      />
-      <Divider />
-      <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
-      <Divider />
-      <CityDetailsMap location={city.location} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <CityDetailsInfo
+          name={city.name}
+          country={city.country}
+          description={city.description}
+        />
+        <Divider />
+        <CityDetailsTouristAttractions
+          touristAttractions={city.touristAttractions}
+        />
+        <Divider />
+        <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
+        <Divider />
+        <CityDetailsMap location={city.location} />
+      </ScrollView>
     </Screen>
   );
 }
