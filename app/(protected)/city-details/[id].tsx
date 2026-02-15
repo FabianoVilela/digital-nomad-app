@@ -40,9 +40,9 @@ export default function CityDetailsScreen() {
           touristAttractions={city.touristAttractions}
         />
         <Divider />
-        <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
-        <Divider />
         <CityDetailsMap location={city.location} />
+        <Divider />
+        <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
       </ScrollView>
     </Screen>
   );
