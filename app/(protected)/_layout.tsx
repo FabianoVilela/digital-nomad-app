@@ -3,7 +3,7 @@ import { usePlatform } from '@/hooks';
 import { useAppTheme } from '@/theme/useAppTheme';
 
 export default function ProtectedLayout() {
-  const { colors } = useAppTheme();
+  const { colors, spacing } = useAppTheme();
   const { isIOS } = usePlatform();
 
   return (
@@ -24,7 +24,7 @@ export default function ProtectedLayout() {
           sheetAllowedDetents: [0.9],
           sheetInitialDetentIndex: 0,
           sheetGrabberVisible: isIOS,
-          sheetCornerRadius: 16,
+          sheetCornerRadius: spacing.s16,
         }}
       />
     </Stack>

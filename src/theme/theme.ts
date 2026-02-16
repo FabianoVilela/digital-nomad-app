@@ -44,6 +44,19 @@ const theme = createTheme({
     s48: 48,
     s56: 56,
     padding: 16, // default
+    none: 0,
+  },
+  fontSizes: {
+    s12: 12,
+    s14: 14,
+    s16: 16,
+    s18: 18,
+    s22: 22,
+    s28: 28,
+  },
+  fonts: {
+    poppinsRegular: 'PoppinsRegular',
+    poppinsSemiBold: 'PoppinsSemiBold',
   },
   textVariants: {
     defaults: {

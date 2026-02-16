@@ -2,6 +2,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useWindowDimensions } from 'react-native';
 import MapView from 'react-native-maps';
 import { Box, type BoxProps } from '@/components/Base/Box';
+import theme from '@/theme/theme';
 
 /* NOTE: This component is only used on Android
  * Leaning how to create a custom pages/components for each platform
@@ -48,7 +49,7 @@ const grabberContainerStyle: BoxProps = {
   position: 'absolute',
   top: 0,
   width: '100%',
-  height: 40,
+  height: theme.spacing.s40,
   alignItems: 'center',
   justifyContent: 'flex-start',
   paddingTop: 's10',

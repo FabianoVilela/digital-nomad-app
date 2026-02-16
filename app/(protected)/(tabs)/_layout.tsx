@@ -3,7 +3,7 @@ import { Icon } from '@/components/Base/Icon';
 import { useAppTheme } from '@/theme/useAppTheme';
 
 export default function ProtectedTabsLayout() {
-  const { colors } = useAppTheme();
+  const { colors, spacing, fontSizes, fonts } = useAppTheme();
 
   return (
     <Tabs
@@ -11,15 +11,15 @@ export default function ProtectedTabsLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.background,
-          height: 90,
-          paddingTop: 12,
+          paddingTop: spacing.s12,
           borderTopWidth: 0,
+          marginBottom: spacing.s10,
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.gray2,
         tabBarLabelStyle: {
-          fontFamily: 'PoppinsRegular',
-          fontSize: 12,
+          fontFamily: fonts.poppinsRegular,
+          fontSize: fontSizes.s12,
           color: colors.text,
         },
         tabBarIconStyle: {

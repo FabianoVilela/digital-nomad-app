@@ -75,7 +75,7 @@ export default function HomeScreen() {
         }
         ItemSeparatorComponent={() => <Box height={spacing.padding} />}
         contentContainerStyle={{
-          paddingTop: top,
+          paddingTop: top + spacing.s16,
           paddingBottom: spacing.padding,
           paddingHorizontal: spacing.padding,
         }}
