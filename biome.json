@@ -50,5 +50,111 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/domain/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/infra/*", "@/infra/**"],
+                    "message": "Clean Architecture: the 'domain' layer cannot import from the 'infra' layer. Domain is the innermost layer and should not know about infrastructure details."
+                  },
+                  {
+                    "group": ["@/ui/*", "@/ui/**"],
+                    "message": "Clean Architecture: the 'domain' layer cannot import from the 'ui' layer. Domain is the innermost layer and should not know about presentation details."
+                  },
+                  {
+                    "group": ["@/shared/*", "@/shared/**"],
+                    "message": "Clean Architecture: the 'domain' layer cannot import from the 'shared' layer. Domain is the innermost layer and must be independent."
+                  },
+                  {
+                    "group": ["@/app/*", "@/app/**"],
+                    "message": "Clean Architecture: the 'domain' layer cannot import from the 'app' layer. Domain is the innermost layer and should not know about the application layer."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/shared/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/infra/*", "@/infra/**"],
+                    "message": "Clean Architecture: the 'shared' layer cannot import from the 'infra' layer. Shared should not depend on infrastructure details."
+                  },
+                  {
+                    "group": ["@/ui/*", "@/ui/**"],
+                    "message": "Clean Architecture: the 'shared' layer cannot import from the 'ui' layer. Shared should not depend on presentation details."
+                  },
+                  {
+                    "group": ["@/app/*", "@/app/**"],
+                    "message": "Clean Architecture: the 'shared' layer cannot import from the 'app' layer."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/infra/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/ui/*", "@/ui/**"],
+                    "message": "Clean Architecture: the 'infra' layer cannot import from the 'ui' layer. Infra should not depend on presentation details."
+                  },
+                  {
+                    "group": ["@/app/*", "@/app/**"],
+                    "message": "Clean Architecture: the 'infra' layer cannot import from the 'app' layer."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/ui/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/app/*", "@/app/**"],
+                    "message": "Clean Architecture: the 'ui' layer cannot import from the 'app' layer."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }
