@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useWindowDimensions } from 'react-native';
 import MapView from 'react-native-maps';
-import { Box, type BoxProps } from '@/components/Base/Box';
-import theme from '@/theme/theme';
+import { Box, type BoxProps } from '@/ui/components/base';
+import { theme } from '@/ui/theme';
 
 /* NOTE: This component is only used on Android
  * Leaning how to create a custom pages/components for each platform

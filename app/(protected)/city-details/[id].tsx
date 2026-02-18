@@ -1,15 +1,15 @@
 import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, Text } from 'react-native';
-import { Box } from '@/components/Base/Box';
-import { Divider } from '@/components/Base/Divider';
-import { Screen } from '@/components/Base/Screen';
-import { CityDetailsHeader } from '@/components/CityDetailsHeader';
-import { CityDetailsInfo } from '@/components/CityDetailsInfo';
-import { CityDetailsMap } from '@/components/CityDetailsMap';
-import { CityDetailsRelatedCities } from '@/components/CityDetailsRelatedCities';
-import { CityDetailsTouristAttractions } from '@/components/CityDetailsTouristAttractions';
-import { cities } from '@/data/cities';
-import { useAppTheme } from '@/theme/useAppTheme';
+import { cities } from '@/infra/data/cities';
+import {
+  CityDetailsHeader,
+  CityDetailsInfo,
+  CityDetailsMap,
+  CityDetailsRelatedCities,
+  CityDetailsTouristAttractions,
+} from '@/ui/components';
+import { Box, Divider, Screen } from '@/ui/components/base';
+import { useAppTheme } from '@/ui/theme';
 
 export default function CityDetailsScreen() {
   const { id } = useLocalSearchParams();

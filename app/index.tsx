@@ -1,6 +1,5 @@
 import { Link } from 'expo-router';
-import { Box } from '@/components/Base/Box';
-import { Text } from '@/components/Base/Text';
+import { Box, Text } from '@/ui/components/base';
 
 export default function Index() {
   return (

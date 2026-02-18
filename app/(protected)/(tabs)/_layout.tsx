@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
-import { Icon } from '@/components/Base/Icon';
-import { useAppTheme } from '@/theme/useAppTheme';
+import { Icon } from '@/ui/components/base/Icon';
+import { useAppTheme } from '@/ui/theme';
 
 export default function ProtectedTabsLayout() {
   const { colors, spacing, fontSizes, fonts } = useAppTheme();

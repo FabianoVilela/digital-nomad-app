@@ -1,8 +1,8 @@
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import ThemeProvider from '@/providers/theme-provider';
-import theme from '@/theme/theme';
+import { ThemeProvider } from '@/ui/providers';
+import { theme } from '@/ui/theme';
 
 export default function RootLayout() {
   const [loaded] = useFonts({

@@ -5,15 +5,14 @@ import {
   type ListRenderItemInfo,
 } from '@shopify/flash-list';
 import { useMemo, useRef, useState } from 'react';
-import { Box } from '@/components/Base/Box';
-import { Screen } from '@/components/Base/Screen';
-import { CityCard } from '@/components/CityCard';
-import { CityFilter } from '@/components/CityFilter';
-import { categories } from '@/data/categories';
-import { cityPreviewList } from '@/data/cities';
-import { useAppSafeArea, useDebounce } from '@/hooks';
-import { useAppTheme } from '@/theme/useAppTheme';
-import type { Category, CityPreview } from '@/types';
+import type { Category } from '@/domain/Category';
+import type { CityPreview } from '@/domain/City';
+import { categories } from '@/infra/data/categories';
+import { cityPreviewList } from '@/infra/data/cities';
+import { useAppSafeArea, useDebounce } from '@/shared/hooks';
+import { CityCard, CityFilter } from '@/ui/components';
+import { Box, Screen } from '@/ui/components/base';
+import { useAppTheme } from '@/ui/theme';
 
 export default function HomeScreen() {
   const flatListRef = useRef<FlashListRef<CityPreview>>(null);

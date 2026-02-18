@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
-import { usePlatform } from '@/hooks';
-import { useAppTheme } from '@/theme/useAppTheme';
+import { usePlatform } from '@/shared/hooks';
+import { useAppTheme } from '@/ui/theme';
 
 export default function ProtectedLayout() {
   const { colors, spacing } = useAppTheme();
