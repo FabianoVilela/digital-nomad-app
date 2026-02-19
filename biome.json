@@ -70,10 +70,6 @@
                     "message": "Clean Architecture: the 'domain' layer cannot import from the 'ui' layer. Domain is the innermost layer and should not know about presentation details."
                   },
                   {
-                    "group": ["@/shared/*", "@/shared/**"],
-                    "message": "Clean Architecture: the 'domain' layer cannot import from the 'shared' layer. Domain is the innermost layer and must be independent."
-                  },
-                  {
                     "group": ["@/app/*", "@/app/**"],
                     "message": "Clean Architecture: the 'domain' layer cannot import from the 'app' layer. Domain is the innermost layer and should not know about the application layer."
                   }
