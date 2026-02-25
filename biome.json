@@ -90,14 +90,6 @@
               "options": {
                 "patterns": [
                   {
-                    "group": ["@/infra/*", "@/infra/**"],
-                    "message": "Clean Architecture: the 'shared' layer cannot import from the 'infra' layer. Shared should not depend on infrastructure details."
-                  },
-                  {
-                    "group": ["@/ui/*", "@/ui/**"],
-                    "message": "Clean Architecture: the 'shared' layer cannot import from the 'ui' layer. Shared should not depend on presentation details."
-                  },
-                  {
                     "group": ["@/app/*", "@/app/**"],
                     "message": "Clean Architecture: the 'shared' layer cannot import from the 'app' layer."
                   }

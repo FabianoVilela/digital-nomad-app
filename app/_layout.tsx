@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { InMemoryRepositories } from '@/infra/repositories';
-import { RepositoryProvider, ThemeProvider } from '@/shared/providers';
+import { AppProvider } from '@/shared/providers';
 import { theme } from '@/ui/theme';
 
 export default function RootLayout() {
@@ -32,21 +32,19 @@ export default function RootLayout() {
   }
 
   return (
-    <RepositoryProvider value={InMemoryRepositories}>
-      <ThemeProvider theme={theme}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: {
-              backgroundColor: theme.colors.background,
-            },
-          }}
-        >
-          <Stack.Screen name="(public)" />
-          <Stack.Screen name="(protected)" />
-        </Stack>
-        <StatusBar style="light" />
-      </ThemeProvider>
-    </RepositoryProvider>
+    <AppProvider repositories={InMemoryRepositories} theme={theme}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: {
+            backgroundColor: theme.colors.background,
+          },
+        }}
+      >
+        <Stack.Screen name="(public)" />
+        <Stack.Screen name="(protected)" />
+      </Stack>
+      <StatusBar style="light" />
+    </AppProvider>
   );
 }
