@@ -17,6 +17,7 @@
     "@shopify/flash-list": "2.0.2",
     "@shopify/restyle": "^2.4.5",
     "@supabase/supabase-js": "^2.95.3",
+    "@tanstack/react-query": "^5.90.21",
     "expo": "~55.0.2",
     "expo-constants": "~55.0.7",
     "expo-font": "~55.0.4",
