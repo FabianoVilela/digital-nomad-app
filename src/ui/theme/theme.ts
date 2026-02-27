@@ -1,4 +1,10 @@
-import { createTheme } from '@shopify/restyle';
+import {
+  type BaseTheme as AppBaseTheme,
+  ThemeProvider as AppThemeProvider,
+  createTheme,
+} from '@shopify/restyle';
+
+export { type AppBaseTheme, AppThemeProvider };
 
 const palette = {
   fieryRed: '#FF4B4B',

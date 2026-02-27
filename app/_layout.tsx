@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { InMemoryRepositories } from '@/infra/repositories';
-import { AppProvider } from '@/shared/providers';
+import { AppProvider, QueryClient } from '@/shared/providers';
 import { theme } from '@/ui/theme';
 
 export default function RootLayout() {
@@ -31,8 +31,14 @@ export default function RootLayout() {
     return null;
   }
 
+  const queryClient = new QueryClient();
+
   return (
-    <AppProvider repositories={InMemoryRepositories} theme={theme}>
+    <AppProvider
+      repositories={InMemoryRepositories}
+      theme={theme}
+      queryClient={queryClient}
+    >
       <Stack
         screenOptions={{
           headerShown: false,

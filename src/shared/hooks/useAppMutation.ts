@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from '@/shared/providers/QueryClientProvider';
 
 type UseAppMutationReturn<DataT, TVariables> = {
   mutate: (variable: TVariables) => DataT | void;

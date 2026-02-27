@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@/shared/providers/QueryClientProvider';
 
 type UseFetchDataReturn<DataT> = {
   data?: DataT;

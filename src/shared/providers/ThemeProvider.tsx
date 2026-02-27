@@ -1,16 +1,11 @@
-import {
-  type BaseTheme as RestyleBaseTheme,
-  ThemeProvider as RestyleThemeProvider,
-} from '@shopify/restyle';
+import { type AppBaseTheme, AppThemeProvider } from '@/ui/theme';
 
-type BaseTheme = RestyleBaseTheme;
-
-export function ThemeProvider<T extends BaseTheme>({
+export function ThemeProvider<T extends AppBaseTheme>({
   children,
   theme,
 }: {
   children: React.ReactNode;
   theme: T;
 }) {
-  return <RestyleThemeProvider theme={theme}>{children}</RestyleThemeProvider>;
+  return <AppThemeProvider theme={theme}>{children}</AppThemeProvider>;
 }
