@@ -1,7 +1,13 @@
-import type { City, ICityRepository, TouristAttraction } from '@/domain/City';
+import type {
+  City,
+  CityFilters,
+  CityPreview,
+  ICityRepository,
+  TouristAttraction,
+} from '@/domain/City';
 
 export class CityRepository implements ICityRepository {
-  findAll(): Promise<City[]> {
+  findAll(filter?: CityFilters): Promise<CityPreview[]> {
     throw new Error('Method not implemented.');
   }
 

@@ -1,12 +1,38 @@
-import type { City, ICityRepository, TouristAttraction } from '@/domain/City';
+import type {
+  City,
+  CityFilters,
+  CityPreview,
+  ICityRepository,
+  TouristAttraction,
+} from '@/domain/City';
+import { cities } from '@/infra/data/cities';
 
 export class CityRepository implements ICityRepository {
-  async findAll(): Promise<City[]> {
-    throw new Error('Not implemented');
+  async findAll(filter?: CityFilters): Promise<CityPreview[]> {
+    let filteredCities = cities;
+
+    if (filter?.name) {
+      filteredCities = filteredCities?.filter((city) =>
+        city.name.toLowerCase().includes(filter.name?.toLowerCase() || ''),
+      );
+    }
+
+    if (filter?.categoryId) {
+      filteredCities = filteredCities?.filter((city) =>
+        city.categories.some((category) => category.id === filter.categoryId),
+      );
+    }
+
+    return filteredCities;
   }
 
   async findById(id: string): Promise<City> {
-    throw new Error('Not implemented');
+    const city = cities.find((city) => city.id === id);
+
+    if (!city) {
+      throw new Error('City not found');
+    }
+    return city;
   }
 
   async findByName(name: string): Promise<City[]> {

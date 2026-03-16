@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, Text } from 'react-native';
-import { cities } from '@/infra/data/cities';
+import { useGetCityById } from '@/domain/City/useCases';
 import {
   CityDetailsHeader,
   CityDetailsInfo,
@@ -12,11 +12,10 @@ import { Box, Divider, Screen } from '@/ui/components/base';
 import { useAppTheme } from '@/ui/theme';
 
 export default function CityDetailsScreen() {
-  const { id } = useLocalSearchParams();
+  const { id } = useLocalSearchParams<{ id: string }>();
   const { spacing } = useAppTheme();
 
-  // TODO: Replace with data fetching - W.I.P
-  const city = cities.find((city) => city.id === id);
+  const { data: city } = useGetCityById(id);
 
   if (!city) {
     return (

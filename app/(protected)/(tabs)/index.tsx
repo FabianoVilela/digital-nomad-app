@@ -4,11 +4,11 @@ import {
   type FlashListRef,
   type ListRenderItemInfo,
 } from '@shopify/flash-list';
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { Category } from '@/domain/Category';
 import type { CityPreview } from '@/domain/City';
+import { useGetCities } from '@/domain/City/useCases';
 import { categories } from '@/infra/data/categories';
-import { cityPreviewList } from '@/infra/data/cities';
 import { useAppSafeArea, useDebounce } from '@/shared/hooks';
 import { CityCard, CityFilter } from '@/ui/components';
 import { Box, Screen } from '@/ui/components/base';
@@ -40,26 +40,21 @@ export default function HomeScreen() {
     return <CityCard cityPreview={item} />;
   }
 
-  // TODO: Remove - W.I.P
-  const filteredCities = useMemo(() => {
-    const filteredCities = cityPreviewList.filter((city) =>
-      city.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
-    );
-
-    if (selectedCategoryId) {
-      return filteredCities.filter((city) =>
-        city.categories.some((category) => category.id === selectedCategoryId),
-      );
-    }
-
-    return filteredCities;
-  }, [debouncedSearch, selectedCategoryId]);
+  // TODO: W.I.P
+  const {
+    data: cities,
+    // isLoading,
+    // error,
+  } = useGetCities({
+    name: debouncedSearch,
+    categoryId: selectedCategoryId,
+  });
 
   return (
     <Screen style={{ paddingHorizontal: 0 }}>
       <FlashList
         ref={flatListRef}
-        data={filteredCities}
+        data={cities}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}

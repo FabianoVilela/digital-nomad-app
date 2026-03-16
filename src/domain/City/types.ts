@@ -26,3 +26,8 @@ export type CityPreview = Pick<
   City,
   'id' | 'name' | 'country' | 'coverImage' | 'categories'
 >;
+
+export type CityFilters = {
+  name?: string;
+  categoryId?: string | null;
+};
