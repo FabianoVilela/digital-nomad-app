@@ -1,6 +1,9 @@
 import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, Text } from 'react-native';
-import { useGetCityById } from '@/domain/City/useCases';
+import {
+  useGetCityById,
+  useGetRelatedCitiesByCityId,
+} from '@/domain/City/useCases';
 import {
   CityDetailsHeader,
   CityDetailsInfo,
@@ -16,6 +19,13 @@ export default function CityDetailsScreen() {
   const { spacing } = useAppTheme();
 
   const { data: city } = useGetCityById(id);
+
+  // NOTE: W.I.P
+  const {
+    data: relatedCities,
+    // error,
+    // isLoading,
+  } = useGetRelatedCitiesByCityId(id);
 
   if (!city) {
     return (
@@ -51,7 +61,7 @@ export default function CityDetailsScreen() {
           <CityDetailsMap location={city.location} />
           <Divider />
         </Box>
-        <CityDetailsRelatedCities relatedCitiesIds={city.relatedCitiesIds} />
+        <CityDetailsRelatedCities relatedCities={relatedCities || []} />
       </ScrollView>
     </Screen>
   );

@@ -2,6 +2,10 @@ import { Link } from 'expo-router';
 import { Box, Text } from '@/ui/components/base';
 
 export default function Index() {
+  if (__DEV__) {
+    require('../ReactotronConfig');
+  }
+
   return (
     <Box
       style={{

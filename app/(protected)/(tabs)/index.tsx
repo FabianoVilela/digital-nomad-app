@@ -6,9 +6,9 @@ import {
 } from '@shopify/flash-list';
 import { useRef, useState } from 'react';
 import type { Category } from '@/domain/Category';
+import { useGetCategories } from '@/domain/Category/useCases';
 import type { CityPreview } from '@/domain/City';
 import { useGetCities } from '@/domain/City/useCases';
-import { categories } from '@/infra/data/categories';
 import { useAppSafeArea, useDebounce } from '@/shared/hooks';
 import { CityCard, CityFilter } from '@/ui/components';
 import { Box, Screen } from '@/ui/components/base';
@@ -29,6 +29,7 @@ export default function HomeScreen() {
 
   function handleCategoryPress(category: Category | null) {
     if (category) {
+      console.info('category', category);
       setSelectedCategoryId(category.id);
       return;
     }
@@ -40,7 +41,7 @@ export default function HomeScreen() {
     return <CityCard cityPreview={item} />;
   }
 
-  // TODO: W.I.P
+  // NOTE: W.I.P
   const {
     data: cities,
     // isLoading,
@@ -49,6 +50,13 @@ export default function HomeScreen() {
     name: debouncedSearch,
     categoryId: selectedCategoryId,
   });
+
+  // NOTE: W.I.P
+  const {
+    data: categories,
+    // isLoading: isLoadingCategories,
+    // error: errorCategories,
+  } = useGetCategories();
 
   return (
     <Screen style={{ paddingHorizontal: 0 }}>
@@ -62,7 +70,7 @@ export default function HomeScreen() {
           <CityFilter
             search={search}
             onSearchChange={setSearch}
-            categories={categories}
+            categories={categories || []}
             selectedCategoryId={selectedCategoryId}
             onSelectCategory={handleCategoryPress}
           />

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ICategoryRepository } from '@/domain/Category';
 import type { ICityRepository } from '@/domain/City';
 
 /**
@@ -7,6 +8,7 @@ import type { ICityRepository } from '@/domain/City';
  */
 export interface Repositories {
   city: ICityRepository;
+  category: ICategoryRepository;
 }
 
 const RepositoryContext = React.createContext<Repositories | null>(null);

@@ -1,4 +1,4 @@
-import { useQuery } from '@/shared/providers/QueryClientProvider';
+import { useQuery } from '@/infra/adapters/query/react-query';
 
 type UseFetchDataReturn<DataT> = {
   data?: DataT;

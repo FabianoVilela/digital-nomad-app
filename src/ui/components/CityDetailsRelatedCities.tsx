@@ -1,26 +1,22 @@
 import { ScrollView } from 'react-native';
-import type { City } from '@/domain/City';
-import { cities } from '@/infra/data/cities';
+import type { CityPreview } from '@/domain/City';
 import { useAppSafeArea } from '@/shared/hooks';
 import { Box, Text } from '@/ui/components/base';
 import { CityCard } from '@/ui/components/CityCard';
 import { useAppTheme } from '@/ui/theme';
 
-type CityDetailsRelatedCitiesProps = Pick<City, 'relatedCitiesIds'>;
+type CityDetailsRelatedCitiesProps = {
+  relatedCities?: CityPreview[];
+};
 
 export function CityDetailsRelatedCities({
-  relatedCitiesIds,
+  relatedCities,
 }: CityDetailsRelatedCitiesProps) {
   const { spacing } = useAppTheme();
   const { bottom } = useAppSafeArea();
 
-  // TODO: change to use the cities from the API - W.I.P
-  const relatedCities = cities.filter((city) =>
-    relatedCitiesIds.includes(city.id),
-  );
-
   function renderRelatedCities() {
-    return relatedCities.map((city) => (
+    return relatedCities?.map((city) => (
       <CityCard key={city.id} cityPreview={city} type="small" />
     ));
   }

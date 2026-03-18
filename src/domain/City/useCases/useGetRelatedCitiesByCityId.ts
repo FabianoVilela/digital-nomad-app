@@ -5,9 +5,11 @@ export function useGetRelatedCitiesByCityId(cityId: string) {
   const _cityRepository = useRepository('city');
 
   return useAppQuery({
-    queryKey: ['city', cityId],
-    fetchData: () => {
-      throw new Error('Not implemented');
+    queryKey: ['related-cities', cityId],
+    fetchData: async () => {
+      const data = _cityRepository.findRelatedCitiesByCityId(cityId);
+
+      return data;
     },
   });
 }

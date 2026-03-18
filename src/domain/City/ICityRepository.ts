@@ -11,7 +11,7 @@ export interface ICityRepository
   findById(id: string): Promise<City>;
   findAll(filter?: CityFilters): Promise<CityPreview[]>;
   findByName(name: string): Promise<City[]>;
-  findRelatedCitiesByCityId(cityId: string): Promise<City[]>;
+  findRelatedCitiesByCityId(cityId: string): Promise<CityPreview[]>;
   findTouristAttractionsByCityId(cityId: string): Promise<TouristAttraction[]>;
   findCitiesByCategoriesIds(categoriesIds: string[]): Promise<City[]>;
 }

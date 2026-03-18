@@ -16,3 +16,6 @@ export type Category = {
   description: string | null;
   code: CategoryCode;
 };
+
+// Api types
+export type CategoryApi = Category;
