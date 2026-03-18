@@ -29,7 +29,6 @@ export default function HomeScreen() {
 
   function handleCategoryPress(category: Category | null) {
     if (category) {
-      console.info('category', category);
       setSelectedCategoryId(category.id);
       return;
     }
