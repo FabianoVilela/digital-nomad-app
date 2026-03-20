@@ -6,3 +6,4 @@ export * from './CityDetailsMap';
 export * from './CityDetailsRelatedCities';
 export * from './CityDetailsTouristAttractions';
 export * from './CityFilter';
+export * from './Logo';
