@@ -1,17 +1,14 @@
+import { categoryAdapter } from '@/domain/Category';
 import {
+  type CitiesGroupedByCategory,
   type City,
+  type CityFilters,
   type CityPreview,
   type CityPreviewApi,
   cityAdapter,
   type ICityRepository,
-  type TouristAttraction,
 } from '@/domain/City';
 import { supabaseClient } from '@/infra/adapters/db';
-
-export type CityFilters = {
-  name?: string;
-  categoryId?: string | null;
-};
 
 const CITY_PREVIEW_FIELD = 'id,name,country,cover_image';
 
@@ -57,16 +54,12 @@ export class CityRepository implements ICityRepository {
     return cityAdapter.toCity(data);
   }
 
-  findByName(name: string): Promise<City[]> {
-    throw new Error('Method not implemented.');
-  }
-
   async findRelatedCitiesByCityId(cityId: string): Promise<CityPreview[]> {
     const { data, error } = await supabaseClient
       .from('related_cities')
       .select(CITY_PREVIEW_FIELD)
-      .eq('source_city_id', cityId);
-    // .throwOnError();
+      .eq('source_city_id', cityId)
+      .throwOnError();
 
     if (error) {
       throw new Error('Data is not available');
@@ -75,13 +68,32 @@ export class CityRepository implements ICityRepository {
     return data.map((row) => cityAdapter.toCityPreview(row));
   }
 
-  async findTouristAttractionsByCityId(
-    cityId: string,
-  ): Promise<TouristAttraction[]> {
-    throw new Error('Method not implemented.');
-  }
+  async findCitiesGroupedByCategory(): Promise<CitiesGroupedByCategory[]> {
+    const { data } = await supabaseClient
+      .from('categories')
+      .select(
+        `
+          id,
+          name,
+          description,
+          code,
+          city_categories (
+            cities(
+              id,
+              name,
+              country,
+              cover_image
+            )  
+          )
+        `,
+      )
+      .throwOnError();
 
-  async findCitiesByCategoriesIds(categoriesIds: string[]): Promise<City[]> {
-    throw new Error('Method not implemented.');
+    return data.map((data) => ({
+      category: categoryAdapter.toCategory(data),
+      cities: data.city_categories.map((cityCategory) =>
+        cityAdapter.toCityPreview(cityCategory.cities),
+      ),
+    }));
   }
 }

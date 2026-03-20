@@ -18,4 +18,6 @@ export type Category = {
 };
 
 // Api types
-export type CategoryApi = Category;
+export type CategoryApi = Omit<Category, 'code'> & {
+  code: string;
+};

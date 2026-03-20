@@ -1,21 +1,21 @@
 import { useQuery } from '@/infra/adapters/query/react-query';
 
-type UseFetchDataReturn<DataT> = {
-  data?: DataT;
+type UseFetchDataReturn<T> = {
+  data?: T;
   isLoading: boolean;
   isPending: boolean;
   error: unknown;
 };
 
-type UseAppQueryParams<DataT> = {
+type UseAppQueryParams<T> = {
   queryKey: (string | null | undefined | number)[];
-  fetchData: () => Promise<DataT>;
+  fetchData: () => Promise<T>;
 };
 
-export function useAppQuery<DataT>({
+export function useAppQuery<T>({
   fetchData,
   queryKey,
-}: UseAppQueryParams<DataT>): UseFetchDataReturn<DataT> {
+}: UseAppQueryParams<T>): UseFetchDataReturn<T> {
   const { data, isLoading, error, isPending } = useQuery({
     queryKey,
     queryFn: fetchData,

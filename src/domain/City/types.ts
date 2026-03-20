@@ -36,6 +36,11 @@ export type CityFilters = {
   categoryId?: string | null;
 };
 
+export type CitiesGroupedByCategory = {
+  category: Category;
+  cities: CityPreview[];
+};
+
 // Api types
 export type CityApi = {
   categories: Json | null;
